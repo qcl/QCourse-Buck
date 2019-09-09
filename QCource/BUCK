@@ -1,0 +1,38 @@
+
+apple_asset_catalog(
+    name = "QCourseAssets",
+    visibility = ["//QCourse:"],
+    app_icon = "AppIcon",
+    dirs = ["Assets.xcassets"],
+)
+
+apple_resource(
+    name = "QCourseAppResource",
+    visibility = ["//QCourse:"],
+    files = glob(["**/*.storyboard"]),
+)
+
+apple_library(
+    name = "QCourseAppLibrary",
+    visibility = [
+        "//QCourse:",
+        "//QCourse/...",
+    ],
+    swift_version = "4.0",
+    srcs = [
+        "AppDelegate.swift",
+        "ViewController.swift",
+    ],
+    deps = [
+        ":QCourseAppResource",
+        ":QCourseAssets",
+    ]
+)
+
+apple_binary(
+    name = "QCourseAppBinary",
+    visibility = [
+        "//QCourse:",
+        "//QCourse/...",
+    ]
+)

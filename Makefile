@@ -9,9 +9,15 @@ all:
 build:
 	${BUCK} build //QCourse:QCourse
 
+debug:
+	$(BUCK) install //QCourse:QCourse --run --simulator-name 'Phone: iPhone Xs'
+
 install_buck: 
 	curl --progress-bar https://jitpack.io/com/github/facebook/buck/${FACEBOOK_COMMIT_SHA}/buck-${FACEBOOK_COMMIT_SHA}.pex --output tools/buck.pex
 	chmod u+x tools/buck.pex
+
+kill_buckd:
+	$(BUCK) killall
 
 clean:
 	rm -rf **/*.xcworkspace
@@ -20,3 +26,4 @@ clean:
 
 project: clean
 	${BUCK} project //QCourse:QCourseWorkspace
+	open QCourse/QCourse.xcworkspace/

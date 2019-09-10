@@ -6,6 +6,10 @@ buck-out
 # macos
 .DS_Store
 
+# Xcode project file
+*.xcodeproj
+*.xcworkspace
+
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore

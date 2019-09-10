@@ -85,7 +85,7 @@ def app_binary_configs(name):
         "PRODUCT_BUNDLE_IDENTIFIER": bundle_identifier(name),
     }
     binary_config = merge_dict(SHARED_CONFIGS, binary_specific_config)
-    binary_config = config_with_updated_linker_flags(binary_config, ALL_LOAD_LINKER_FLAG)
+#    binary_config = config_with_updated_linker_flags(binary_config, ALL_LOAD_LINKER_FLAG)
     return {
         "Debug": binary_config,
         "Profile": binary_config,

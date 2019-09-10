@@ -7,10 +7,10 @@ all:
 	echo "Hoi"
 
 build:
-	${BUCK} build //QCourse:QCourse
+	${BUCK} build //App:QCourse
 
 debug:
-	$(BUCK) install //QCourse:QCourse --run --simulator-name 'Phone: iPhone Xs'
+	$(BUCK) install //App:QCourse --run --simulator-name 'Phone: iPhone Xs'
 
 install_buck: 
 	curl --progress-bar https://jitpack.io/com/github/facebook/buck/${FACEBOOK_COMMIT_SHA}/buck-${FACEBOOK_COMMIT_SHA}.pex --output tools/buck.pex
@@ -25,5 +25,7 @@ clean:
 	rm -rf buck-out
 
 project: clean
-	${BUCK} project //QCourse:QCourseWorkspace
-	open QCourse/QCourse.xcworkspace/
+	${BUCK} project //App:QCourseWorkspace
+	open -a Xcode App/QCourse.xcworkspace/
+#	open QCourse/QCourse.xcworkspace/
+#	Xcode 11 beta 6 failed to build while Xcode 11 beta 2 is okay, currently use Xcode 10 first

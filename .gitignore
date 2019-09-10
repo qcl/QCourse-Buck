@@ -5,6 +5,7 @@ buck-out
 
 # macos
 .DS_Store
+*.swp
 
 # Xcode project file
 *.xcodeproj

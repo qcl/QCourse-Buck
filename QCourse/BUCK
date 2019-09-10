@@ -1,0 +1,83 @@
+load('//buck-macro:utils.bzl',
+    'bundle_identifier',
+    'info_plist_substitutions',
+    'app_binary_configs',
+    'library_configs'
+)
+
+apple_asset_catalog(
+    name = "QCourseAssets",
+    visibility = ["//QCourse:"],
+    app_icon = "AppIcon",
+    dirs = ["Assets.xcassets"],
+)
+
+apple_resource(
+    name = "QCourseAppResource",
+    visibility = ["//QCourse:"],
+    files = glob(["**/*.storyboard"]),
+)
+
+apple_library(
+    name = "QCourseAppLibrary",
+    visibility = [
+        "//QCourse:",
+        "//QCourse/...",
+    ],
+    swift_version = "5",
+    configs = library_configs(),
+    srcs = [
+        "AppDelegate.swift",
+        "ViewController.swift",
+    ],
+    deps = [
+        ":QCourseAppResource",
+        ":QCourseAssets",
+    ]
+)
+
+apple_binary(
+    name = "QCourseAppBinary",
+    visibility = [
+        "//QCourse:",
+        "//QCourse/...",
+    ],
+    swift_version = "5",
+    configs = app_binary_configs("QCourse"),
+    srcs = [
+        "Dummy.swift"
+    ],
+    deps = [
+        ":QCourseAppLibrary",
+    ]
+)
+
+xcode_workspace_config(
+    name = "QCourseWorkspace",
+    workspace_name = "QCourse",
+    src_target = ":QCourse",
+    additional_scheme_actions = {
+        'Build': {
+            'PRE_SCHEME_ACTIONS': ["echo 'Started'"],
+            'POST_SCHEME_ACTIONS': ["echo 'Finished'"],
+        },
+    }
+)
+
+apple_bundle(
+    name = "QCourse",
+    visibility = [
+        "//QCourse:",
+    ],
+    extension = "app",
+    binary = ":QCourseAppBinary",
+    product_name = "QCourse",
+    info_plist = "Info.plist",
+    info_plist_substitutions = info_plist_substitutions("QCourse") 
+)
+
+apple_package(
+    name = "QCoursePackage",
+    bundle = ":QCourse"
+)
+

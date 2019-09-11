@@ -10,7 +10,7 @@ build:
 	${BUCK} build //App:QCourse
 
 debug:
-	$(BUCK) install //App:QCourse --run --simulator-name 'Phone: iPhone Xs'
+	$(BUCK) install //App:QCourse --run --simulator-name 'iPhone Xs'
 
 install_buck: 
 	curl --progress-bar https://jitpack.io/com/github/facebook/buck/${FACEBOOK_COMMIT_SHA}/buck-${FACEBOOK_COMMIT_SHA}.pex --output tools/buck.pex

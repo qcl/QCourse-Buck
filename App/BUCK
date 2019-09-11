@@ -75,7 +75,7 @@ apple_bundle(
     binary = ":QCourseAppBinary",
     product_name = "QCourseApp",
     info_plist = "Info.plist",
-    info_plist_substitutions = info_plist_substitutions("QCourse") 
+    info_plist_substitutions = info_plist_substitutions("QCourseApp") 
 )
 
 apple_package(

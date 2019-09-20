@@ -48,6 +48,14 @@ apple_binary(
     srcs = [
         "AppDelegate.swift",
         "ViewController.swift",
+        "GeoUtils.m",
+        "Airport.swift",
+        "TPE.swift",
+        "AMS.swift",
+    ],
+    bridging_header = "QCourse-Bridging-Header.h",
+    headers = [
+        "GeoUtils.h"
     ],
     deps = [
         ":QCourseAppResource",
@@ -91,9 +99,11 @@ apple_test(
     name = "QCourseUnitTest",
     visibility = ["PUBLIC"],
     info_plist = "UnitTests/Info.plist",
-    info_plist_substitutions = {                                            "CURRENT_PROJECT_VERSION": "1",                                
+    info_plist_substitutions = {
+      "CURRENT_PROJECT_VERSION": "1",                                
       "DEVELOPMENT_LANGUAGE": "en",
-      "EXECUTABLE_NAME": "QCourseUnitTest",                                 "PRODUCT_BUNDLE_IDENTIFIER": "tw.qcl.QCourseUnitTest",       
+      "EXECUTABLE_NAME": "QCourseUnitTest",
+      "PRODUCT_BUNDLE_IDENTIFIER": "tw.qcl.QCourseUnitTest",
       "PRODUCT_NAME": "QCourseUnitTest",
     },
     destination_specifier = None,

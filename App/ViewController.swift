@@ -7,10 +7,6 @@
 //
 
 import UIKit
-//import AppDevKit
-//import Asia
-//import Europe
-//import Flags
 
 class ViewController: UIViewController {
 
@@ -21,10 +17,10 @@ class ViewController: UIViewController {
         self.view.backgroundColor = .orange
 
         print("Hello!")
-/*
+
         let airportOne = TPE()
         let airportTwo = AMS()
-       
+
         let distance = GeoUtils.distance(inKmBetweenLocation: CLLocation(latitude:airportOne.location.latitude, longitude: airportOne.location.longitude), anotherLocation: CLLocation(latitude: airportTwo.location.latitude, longitude: airportTwo.location.longitude))
         print(distance)
 
@@ -33,10 +29,10 @@ class ViewController: UIViewController {
         let airportOneCityNameLabel = UILabel.init(frame: CGRect(x: 160, y: 70, width: 200, height: 20))
         let airportOneICAOCodeLabel = UILabel.init(frame: CGRect(x: 84, y: 100, width: 100, height:14))
         let airportOneCountryFlagImageView = UIImageView.init(frame: CGRect(x: 64, y: 100, width:20 , height: 14))
-        if let airportOneCountryFlagImage = EmojiFlags.flag(forCountriyCode: airportOne.country.iso3166TwoDigitsCode) {
-            airportOneCountryFlagImageView.image = airportOneCountryFlagImage
-            
-        }
+//        if let airportOneCountryFlagImage = EmojiFlags.flag(forCountriyCode: airportOne.country.iso3166TwoDigitsCode) {
+//            airportOneCountryFlagImageView.image = airportOneCountryFlagImage
+//
+//        }
 
         airportOneCodeLabel.text = airportOne.IATACode
         airportOneCodeLabel.font = UIFont.systemFont(ofSize: 32, weight: .heavy)
@@ -59,11 +55,11 @@ class ViewController: UIViewController {
         let airportTwoCityNameLabel = UILabel.init(frame: CGRect(x: 160, y: 270, width: 200, height: 20))
         let airportTwoICAOCodeLabel = UILabel.init(frame: CGRect(x: 84, y: 300, width: 100, height:14))
         let airportTwoCountryFlagImageView = UIImageView.init(frame: CGRect(x: 64, y: 300, width:20 , height: 14))
-        if let airportTWOCountryFlagImage = EmojiFlags.flag(forCountriyCode: airportTwo.country.iso3166TwoDigitsCode) {
-            airportTwoCountryFlagImageView.image = airportTWOCountryFlagImage
-            
-        }
-        
+//        if let airportTWOCountryFlagImage = EmojiFlags.flag(forCountriyCode: airportTwo.country.iso3166TwoDigitsCode) {
+//            airportTwoCountryFlagImageView.image = airportTWOCountryFlagImage
+//
+//        }
+
         airportTwoCodeLabel.text = airportTwo.IATACode
         airportTwoCodeLabel.font = UIFont.systemFont(ofSize: 32, weight: .heavy)
         airportTwoNameLabel.text = airportTwo.name
@@ -80,13 +76,13 @@ class ViewController: UIViewController {
         view.addSubview(airportTwoICAOCodeLabel)
         
         let distanceLabel = UILabel.init(frame: CGRect(x: 62, y: 180, width: 300, height: 32))
-        if let distanceStr = ADKGetThousandSeparatorNumberString(Int(distance)) {
-            distanceLabel.text = "\(distanceStr) km"
-        }
+        distanceLabel.text = "\(Int(distance)) km"
+//        if let distanceStr = ADKGetThousandSeparatorNumberString(Int(distance)) {
+//            distanceLabel.text = "\(distanceStr) km"
+//        }
         distanceLabel.font = UIFont.systemFont(ofSize: 30, weight: .medium)
         
         view.addSubview(distanceLabel)
-        */
     }
 
 }

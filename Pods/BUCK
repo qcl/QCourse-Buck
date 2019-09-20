@@ -1,0 +1,10 @@
+load('//buck-macro:utils.bzl', 'library_configs')
+
+apple_library(
+    name = "AppDevKit",
+    visibility = ["PUBLIC"],
+    modular = True,
+    exported_headers = glob(["AppDevKit/**/*.h"]),
+    srcs = glob(["AppDevKit/**/*.m"]),
+    configs = library_configs(),
+)

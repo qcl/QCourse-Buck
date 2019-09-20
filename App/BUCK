@@ -2,6 +2,7 @@ load('//buck-macro:utils.bzl',
     'bundle_identifier',
     'info_plist_substitutions',
     'app_binary_configs',
+    'app_test_configs',
     'library_configs'
 )
 
@@ -75,7 +76,10 @@ apple_bundle(
     binary = ":QCourseAppBinary",
     product_name = "QCourseApp",
     info_plist = "Info.plist",
-    info_plist_substitutions = info_plist_substitutions("QCourseApp") 
+    info_plist_substitutions = info_plist_substitutions("QCourseApp"),
+    tests = [
+        ":QCourseUnitTest",
+    ],
 )
 
 apple_package(
@@ -83,3 +87,24 @@ apple_package(
     bundle = ":QCourse"
 )
 
+apple_test(
+    name = "QCourseUnitTest",
+    visibility = ["PUBLIC"],
+    info_plist = "UnitTests/Info.plist",
+    info_plist_substitutions = {                                            "CURRENT_PROJECT_VERSION": "1",                                
+      "DEVELOPMENT_LANGUAGE": "en",
+      "EXECUTABLE_NAME": "QCourseUnitTest",                                 "PRODUCT_BUNDLE_IDENTIFIER": "tw.qcl.QCourseUnitTest",       
+      "PRODUCT_NAME": "QCourseUnitTest",
+    },
+    destination_specifier = None,
+    test_host_app = None,
+    is_ui_test = False,
+    ui_test_target_app = None,
+    run_test_separately = False,
+    configs = app_test_configs("QCourseUnitTest"),
+    frameworks = [
+        "$PLATFORM_DIR/Developer/Library/Frameworks/XCTest.framework"
+    ],
+    swift_version = "5",
+    srcs = ["UnitTests/QCourseTests.swift"]
+)

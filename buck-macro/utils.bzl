@@ -92,3 +92,11 @@ def app_binary_configs(name):
         "Release": binary_config
     }
 
+def app_test_configs(name):
+    binary_specific_config = info_plist_substitutions(name)
+    binary_config = merge_dict(SHARED_CONFIGS, binary_specific_config)
+    configs = {
+        "Debug": binary_config,
+        "Profile": binary_config,
+    }
+    return configs

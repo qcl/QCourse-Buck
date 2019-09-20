@@ -1,1 +1,0 @@
-../../../AppDevKit/AppDevPods/AppDevListViewKit/ADKNibSizeCalculator.h

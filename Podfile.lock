@@ -1,24 +1,8 @@
 PODS:
-  - AppDevKit (1.5.0):
-    - AppDevKit/AppDevAnimateKit (= 1.5.0)
-    - AppDevKit/AppDevCameraKit (= 1.5.0)
-    - AppDevKit/AppDevCommonKit (= 1.5.0)
-    - AppDevKit/AppDevImageKit (= 1.5.0)
-    - AppDevKit/AppDevListViewKit (= 1.5.0)
-    - AppDevKit/AppDevUIKit (= 1.5.0)
-  - AppDevKit/AppDevAnimateKit (1.5.0)
-  - AppDevKit/AppDevCameraKit (1.5.0)
   - AppDevKit/AppDevCommonKit (1.5.0)
-  - AppDevKit/AppDevImageKit (1.5.0):
-    - AppDevKit/AppDevCommonKit
-  - AppDevKit/AppDevListViewKit (1.5.0):
-    - AppDevKit/AppDevCommonKit
-    - AppDevKit/AppDevUIKit
-  - AppDevKit/AppDevUIKit (1.5.0):
-    - AppDevKit/AppDevCommonKit
 
 DEPENDENCIES:
-  - AppDevKit
+  - AppDevKit/AppDevCommonKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -27,6 +11,6 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AppDevKit: ed90f5076acc19d721f1718d32d7331304ab390b
 
-PODFILE CHECKSUM: fee01a6de4a8e7369904007b9580ba7cb978d149
+PODFILE CHECKSUM: 6812cc5d863dab78df70298bea92b6f9fb0478df
 
 COCOAPODS: 1.5.3

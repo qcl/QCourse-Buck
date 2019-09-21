@@ -9,6 +9,9 @@ all:
 build:
 	${BUCK} build //App:QCourse
 
+build_with_cache:
+	${BUCK} build //App:QCourse --config cache.mode=http --config cache.http_url=http://buck-cache.i0S.app:9527 --config cache.cache_mode=readwrite
+
 debug:
 	$(BUCK) install //App:QCourse --run --simulator-name 'iPhone Xs'
 

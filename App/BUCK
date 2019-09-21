@@ -19,24 +19,6 @@ apple_resource(
     files = glob(["**/*.storyboard"]),
 )
 
-apple_library(
-    name = "QCourseAppLibrary",
-    visibility = [
-        "//App:",
-        "//App/...",
-    ],
-    swift_version = "5",
-    configs = library_configs(),
-    srcs = [
-        "AppDelegate.swift",
-        "ViewController.swift",
-    ],
-    deps = [
-        ":QCourseAppResource",
-        ":QCourseAssets",
-    ]
-)
-
 apple_binary(
     name = "QCourseAppBinary",
     visibility = [
@@ -78,6 +60,11 @@ xcode_workspace_config(
     }
 )
 
+apple_package(
+    name = "QCoursePackage",
+    bundle = ":QCourse"
+)
+
 apple_bundle(
     name = "QCourse",
     visibility = [
@@ -93,10 +80,8 @@ apple_bundle(
     ],
 )
 
-apple_package(
-    name = "QCoursePackage",
-    bundle = ":QCourse"
-)
+
+
 
 apple_test(
     name = "QCourseUnitTest",

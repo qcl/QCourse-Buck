@@ -23,9 +23,9 @@ class ViewController: UIViewController {
         
         let distanceLabel = UILabel.init(frame: CGRect(x: 62, y: 180, width: 300, height: 32))
         distanceLabel.text = "\(Int(distance)) km"
-//        if let distanceStr = ADKGetThousandSeparatorNumberString(Int(distance)) {
-//            distanceLabel.text = "\(distanceStr) km"
-//        }
+        if let distanceStr = ADKGetThousandSeparatorNumberString(Int(distance)) {
+            distanceLabel.text = "\(distanceStr) km"
+        }
         distanceLabel.font = UIFont.systemFont(ofSize: 30, weight: .medium)
         
         view.addSubview(distanceLabel)

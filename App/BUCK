@@ -48,23 +48,6 @@ apple_binary(
     ]
 )
 
-xcode_workspace_config(
-    name = "QCourseWorkspace",
-    workspace_name = "QCourse",
-    src_target = ":QCourse",
-    additional_scheme_actions = {
-        'Build': {
-            'PRE_SCHEME_ACTIONS': ["echo 'Started'"],
-            'POST_SCHEME_ACTIONS': ["echo 'Finished'"],
-        },
-    }
-)
-
-apple_package(
-    name = "QCoursePackage",
-    bundle = ":QCourse"
-)
-
 apple_bundle(
     name = "QCourse",
     visibility = [
@@ -80,6 +63,22 @@ apple_bundle(
     ],
 )
 
+apple_package(
+    name = "QCoursePackage",
+    bundle = ":QCourse"
+)
+
+xcode_workspace_config(
+    name = "QCourseWorkspace",
+    workspace_name = "QCourse",
+    src_target = ":QCourse",
+    additional_scheme_actions = {
+        'Build': {
+            'PRE_SCHEME_ACTIONS': ["echo 'Started'"],
+            'POST_SCHEME_ACTIONS': ["echo 'Finished'"],
+        },
+    }
+)
 
 
 

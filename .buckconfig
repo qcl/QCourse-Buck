@@ -23,6 +23,11 @@
   polyglot_parsing_enabled = true
   default_build_file_syntax = SKYLARK
 
+[cache]
+  mode = http
+  http_url = http://buck-cache.i0S.app:9527
+  cache_mode = readwrite
+
 [project]
   ide_force_kill = always
   project_schemes = true

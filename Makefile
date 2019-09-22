@@ -27,7 +27,7 @@ clean:
 	rm -rf **/*.xcodeproj
 	rm -rf buck-out
 
-project: clean
+project: 
 	${BUCK} project //App:QCourseWorkspace
 	open -a Xcode App/QCourse.xcworkspace/
 #	open QCourse/QCourse.xcworkspace/
